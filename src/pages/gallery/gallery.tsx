@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Item from "../../components/item";
 import "./styles.css";
 import { IStatus } from "../../constants/status";
@@ -16,11 +16,7 @@ const Gallery: React.FC<GalleryProps> = ({ filters, sort }) => {
   const [items, setItems] = useState<{ title: string; imageUrl: string }[]>([]);
   const [status, setStatus] = useState<IStatus>(IStatus.success);
 
-  useEffect(() => {
-    fetchSeries();
-  }, []);
-
-  const fetchSeries = async () => {
+  const fetchSeries = useCallback(async () => {
     setStatus(IStatus.loading);
     try {
       const response = await fetch("/feed/sample.json");
@@ -31,7 +27,12 @@ const Gallery: React.FC<GalleryProps> = ({ filters, sort }) => {
       console.log(err);
       setStatus(IStatus.error);
     }
-  };
+  }, [filters, sort]);
+  
+  useEffect(() => {
+    fetchSeries();
+  }, [fetchSeries]);
+
 
   const displayItems = (items: { title: string; imageUrl: string }[]) => {
     return items.map((item, index) => (
