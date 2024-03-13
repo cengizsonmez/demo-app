@@ -1,25 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import "./assets/css/main.css";
+import Gallery from "./pages/gallery/gallery";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/movies"
+              element={
+                <Gallery
+                  filters={{
+                    programType: { value: "movie", operator: "equals" },
+                    releaseYear: {
+                      value: "2010",
+                      operator: "greaterThanOrEqual",
+                    },
+                  }}
+                  sort="asc"
+                />
+              }
+            />
+            <Route
+              path="/series"
+              element={
+                <Gallery
+                  filters={{
+                    programType: { value: "series", operator: "equals" },
+                    releaseYear: {
+                      value: "2010",
+                      operator: "greaterThanOrEqual",
+                    },
+                  }}
+                  sort="asc"
+                />
+              }
+            />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

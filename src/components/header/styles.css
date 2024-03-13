@@ -1,0 +1,43 @@
+.header {
+    background-color: #333;
+    color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.sub-title {
+    background-color: #afd7ff;
+    color: #000;
+    padding: 10px;
+}
+
+.nav-bar {
+    height: 30px;
+    background-color: #2f4357;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.login-button {
+    background-color: #ebebeb;
+    border: 1px solid #636363;
+    padding-inline: 15px;
+    padding-block: 5px;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.header-title {
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}

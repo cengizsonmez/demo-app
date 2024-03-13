@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.app {
+    overflow: hidden;
+    background-color: #fdfdfd;
+}
+
+.content {
+    margin: 100px auto 100px auto;
+    overflow-y: auto;
+    max-width: 1000px;
+}
+
+.content-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

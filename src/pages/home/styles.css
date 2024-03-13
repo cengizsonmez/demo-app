@@ -1,0 +1,11 @@
+.content-wrapper {
+    justify-content: start;
+}
+
+.custom-link {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
